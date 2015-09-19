@@ -1,0 +1,17 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+	RewriteRule ^/review/fsi_beta/inspections$ inspections.html [NC]
+	RewriteRule ^inspections$ inspections.html [NC,L]
+ 
+	RewriteRule ^htaccess/?$ index.php?article_id=14 [NC,L]
+	RewriteRule ^admin/([0-9]+)/([A-Za-z0-9-]+)/?$ index.php?view=admin&id=$1
+	RewriteRule ^([a-zA-Z0-9_-]+)$ profile.php?user=$1
+	
+	
+	RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?user=$1&report=$2&location=$3
+	
+	RewriteLog "logs/rewritelog"
+
+	RewriteLogLevel 7
+</IfModule>
